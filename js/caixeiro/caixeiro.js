@@ -1,5 +1,5 @@
 let delay = 500;
-const cities = [
+let cities = [
     { name: "A", x: 60, y: 200 },
     { name: "B", x: 180, y: 200 },
     { name: "C", x: 80, y: 180 },
@@ -111,26 +111,28 @@ function drawPath(path) {
     }
 
     // Draw path
-    ctx.strokeStyle = 'blue';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    for (let i = 0; i < path.length; i++) {
-        const city = path[i];
-        if (i === 0) {
-            ctx.moveTo(city.x, city.y);
-        } else {
-            ctx.lineTo(city.x, city.y);
+    if (path.length > 0) {
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let i = 0; i < path.length; i++) {
+            const city = path[i];
+            if (i === 0) {
+                ctx.moveTo(city.x, city.y);
+            } else {
+                ctx.lineTo(city.x, city.y);
+            }
         }
+        ctx.stroke();
     }
-    ctx.lineTo(path[0].x, path[0].y); // Complete the cycle
-    ctx.stroke();
 }
 
 async function startSolving() {
     const algorithm = document.getElementById('algorithm').value;
     delay = parseInt(document.getElementById('delay').value);
     document.getElementById('steps').innerHTML = '';
-    let path = []; // Inicializar path
+
+    let path = [];
 
     if (algorithm === 'bruteForce') {
         const result = await solveBruteForce(cities);
@@ -142,8 +144,15 @@ async function startSolving() {
         alert(`Solução encontrada!\nCaminho: ${result.path.map(city => city.name).join(' -> ')}\nDistância: ${result.distance.toFixed(2)}`);
     }
 
-    // Garantir que path seja passado corretamente para a função drawPath()
     drawPath(path);
+}
+
+function randomizeCities() {
+    cities.forEach(city => {
+        city.x = Math.floor(Math.random() * 380) + 10; // Ensure the city stays within the canvas
+        city.y = Math.floor(Math.random() * 380) + 10; // Ensure the city stays within the canvas
+    });
+    drawPath([]); // Draw the randomized cities
 }
 
 drawPath([]);
