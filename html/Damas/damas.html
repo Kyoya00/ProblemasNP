@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Problema das Oito Damas</title>
-    <link rel="stylesheet" href="../../styles/Damas/damas.css">
+    <link rel="stylesheet" href="/styles/damas/damas.css">
 </head>
 <body>
     <div class="container">
         <h1>Problema das Oito Damas</h1>
-        <table id="chessboard"></table>
-        <div class="controls">
-            <label for="delay">Atraso (ms):</label>
-            <input type="number" id="delay" value="500" min="100" step="100">
-            <div>
-                <button onclick="startSolving()">Resolver</button>
-                <button onclick="window.location.href='../index.html'">Voltar</button>
+        <div class="flex-container">
+            <div class="board-container">
+                <table id="chessboard"></table>
+                <div class="controls">
+                    <label for="delay">Atraso (ms):</label>
+                    <input type="number" id="delay" value="500" min="100" step="100">
+                    <div>
+                        <button onclick="startSolving()">Resolver</button>
+                        <button onclick="window.location.href='../index.html'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <h2>Passo a Passo: Construindo o Algoritmo de Backtracking para o Problema das Oito Damas</h2>
+                <p>O problema das oito damas é um clássico problema de xadrez onde o objetivo é posicionar oito damas em um tabuleiro de xadrez 8x8 de modo que nenhuma dama possa atacar outra. A dama pode atacar outra se estiver na mesma linha, coluna ou diagonal.</p>
+                <h3>Passo 1: Entendendo o Problema das Oito Damas</h3>
+                <p><strong>Regras do Movimento da Dama:</strong></p>
+                <ul>
+                    <li>A dama pode se mover qualquer número de casas ao longo da linha, coluna ou diagonal.</li>
+                    <li>O problema consiste em encontrar uma maneira de posicionar oito damas no tabuleiro, de forma que nenhuma delas possa atacar outra.</li>
+                </ul>
+                <h3>Algoritmo de Tentativa-e-Erro (Backtracking)</h3>
+                <p>O backtracking é uma técnica de resolução de problemas que envolve a construção de soluções incrementais e a remoção das soluções que não satisfazem as restrições do problema. Para o problema das oito damas, a abordagem de backtracking funciona da seguinte maneira:</p>
+                <ul>
+                    <li>Colocar a primeira dama na primeira coluna.</li>
+                    <li>Tentar colocar a próxima dama na próxima coluna.</li>
+                    <li>Se uma posição válida for encontrada, colocar a dama nessa posição e repetir o processo para a próxima coluna.</li>
+                    <li>Se uma posição válida não for encontrada, retroceder (backtrack) para a posição anterior e tentar uma nova posição.</li>
+                    <li>Repetir até que todas as damas tenham sido posicionadas ou todas as possibilidades tenham sido testadas.</li>
+                </ul>
             </div>
         </div>
     </div>
-    <script src="../../js/Damas/damas.js"></script>
+    <script src="/js/damas/damas.js"></script>
 </body>
 </html>
