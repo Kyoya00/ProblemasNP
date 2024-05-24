@@ -8,13 +8,36 @@
 <body>
     <div class="container">
         <h1>Problema do Cavalo</h1>
-        <table id="chessboard"></table>
-        <div class="controls">
-            <label for="delay">Atraso (ms):</label>
-            <input type="number" id="delay" value="500" min="100" step="100">
-            <div>
-                <button onclick="startSolving()">Resolver</button>
-                <button onclick="window.location.href='../index.html'">Voltar</button>
+        <div class="flex-container">
+            <div class="board-container">
+                <table id="chessboard"></table>
+                <div class="controls">
+                    <label for="delay">Atraso (ms):</label>
+                    <input type="number" id="delay" value="500" min="100" step="100">
+                    <div>
+                        <button onclick="startSolving()">Resolver</button>
+                        <button onclick="window.location.href='../index.html'">Voltar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <h2>Passo a Passo: Construindo o Algoritmo de Backtracking para o Problema do Cavalo</h2>
+                <p>O problema do cavalo no xadrez envolve a tentativa de visitar cada casa do tabuleiro exatamente uma vez com movimentos válidos de um cavalo. O movimento do cavalo é em "L": duas casas em uma direção e uma casa perpendicularmente, ou uma casa em uma direção e duas casas perpendicularmente.</p>
+                <h3>Passo 1: Entendendo o Problema do Cavalo</h3>
+                <p><strong>Regras do Movimento do Cavalo:</strong></p>
+                <ul>
+                    <li>O cavalo pode se mover para qualquer uma das 8 posições a partir da posição atual, respeitando os limites do tabuleiro.</li>
+                    <li>O problema consiste em encontrar um caminho que permita ao cavalo visitar todas as casas do tabuleiro uma única vez.</li>
+                </ul>
+                <h3>Algoritmo de Tentativa-e-Erro (Backtracking)</h3>
+                <p>O backtracking é uma técnica de resolução de problemas que envolve a construção de soluções incrementais e a remoção das soluções que não satisfazem as restrições do problema. Para o problema do cavalo, a abordagem de backtracking funciona da seguinte maneira:</p>
+                <ul>
+                    <li>Colocar o cavalo na posição inicial.</li>
+                    <li>Tentar mover o cavalo para uma das 8 posições válidas.</li>
+                    <li>Se uma posição válida for encontrada, mover o cavalo para essa posição e repetir o processo.</li>
+                    <li>Se o cavalo não puder ser movido para nenhuma posição válida, retroceder (backtrack) para a posição anterior e tentar uma nova posição.</li>
+                    <li>Repetir até que todas as casas do tabuleiro tenham sido visitadas ou todas as possibilidades tenham sido testadas.</li>
+                </ul>
             </div>
         </div>
     </div>
