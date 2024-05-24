@@ -8,21 +8,65 @@
 <body>
     <div class="container">
         <h1>Problema do Caixeiro-Viajante</h1>
-        <div class="controls">
-            <label for="algorithm">Algoritmo:</label>
-            <select id="algorithm">
-                <option value="bruteForce">Força Bruta</option>
-                <option value="greedy">Guloso</option>
-            </select>
-            <label for="delay">Atraso (ms):</label>
-            <input type="number" id="delay" value="500" min="100" step="100">
-            <div>
-                <button onclick="startSolving()">Resolver</button>
-                <button onclick="randomizeCities()">Aleatorizar Cidades</button>
-                <button onclick="window.location.href='../index.html'">Voltar</button>
+        <div class="flex-container">
+            <div class="controls">
+                <label for="algorithm">Algoritmo:</label>
+                <select id="algorithm">
+                    <option value="bruteForce">Força Bruta</option>
+                    <option value="greedy">Guloso</option>
+                </select>
+                <label for="delay">Atraso (ms):</label>
+                <input type="number" id="delay" value="500" min="100" step="100">
+                <canvas id="canvas" width="500" height="200"></canvas>
+                <div>
+                    <button onclick="startSolving()">Resolver</button>
+                    <button onclick="randomizeCities()">Aleatorizar Cidades</button>
+                    <button onclick="window.location.href='../index.html'">Voltar</button>
+                </div>
+            </div>
+            <div class="explanation">
+                <h2>Passo a Passo: Construindo o Algoritmo para o Problema do Caixeiro Viajante</h2>
+                <p>O problema do caixeiro viajante consiste em encontrar o caminho mais curto que permite a um vendedor visitar todas as cidades de uma lista exatamente uma vez e retornar à cidade de origem. O algoritmo pode ser resolvido de diversas maneiras, incluindo força bruta e abordagem gulosa (greedy).</p>
+                <h3>Algoritmo de Força Bruta</h3>
+                <p>A abordagem de força bruta testa todas as possíveis permutações das cidades para encontrar o caminho mais curto.</p>
+                <h4>Passo a passo:</h4>
+                <ol>
+                    <li>Gerar todas as permutações das cidades:</li>
+                    <ul>
+                        <li>Calcular todas as possíveis sequências em que as cidades podem ser visitadas.</li>
+                    </ul>
+                    <li>Calcular a distância total de cada permutação:</li>
+                    <ul>
+                        <li>Para cada permutação, calcular a distância total percorrida.</li>
+                    </ul>
+                    <li>Selecionar a permutação com a menor distância:</li>
+                    <ul>
+                        <li>Comparar as distâncias totais e selecionar o caminho com a menor distância.</li>
+                    </ul>
+                </ol>
+                <h3>Algoritmo Guloso (Greedy)</h3>
+                <p>A abordagem gulosa constrói uma solução passo a passo, escolhendo sempre a opção localmente ótima com a esperança de encontrar a solução global ótima.</p>
+                <h4>Passo a passo:</h4>
+                <ol>
+                    <li>Selecionar uma cidade inicial:</li>
+                    <ul>
+                        <li>Começar de uma cidade inicial.</li>
+                    </ul>
+                    <li>Encontrar a cidade mais próxima não visitada:</li>
+                    <ul>
+                        <li>Selecionar a cidade mais próxima da cidade atual que ainda não foi visitada.</li>
+                    </ul>
+                    <li>Repetir até que todas as cidades tenham sido visitadas:</li>
+                    <ul>
+                        <li>Continuar selecionando a cidade mais próxima até que todas as cidades tenham sido visitadas.</li>
+                    </ul>
+                    <li>Retornar à cidade de origem:</li>
+                    <ul>
+                        <li>Após visitar todas as cidades, retornar à cidade de origem para completar o ciclo.</li>
+                    </ul>
+                </ol>
             </div>
         </div>
-        <canvas id="canvas" width="400" height="400"></canvas>
         <div id="steps"></div>
     </div>
     <script src="/js/caixeiro/caixeiro.js"></script>

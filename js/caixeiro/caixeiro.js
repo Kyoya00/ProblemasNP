@@ -1,15 +1,15 @@
 let delay = 500;
 let cities = [
-    { name: "A", x: 60, y: 200 },
-    { name: "B", x: 180, y: 200 },
-    { name: "C", x: 80, y: 180 },
-    { name: "D", x: 140, y: 180 },
-    { name: "E", x: 20, y: 160 },
-    { name: "F", x: 100, y: 160 },
-    { name: "G", x: 200, y: 160 },
-    { name: "H", x: 140, y: 140 },
-    { name: "I", x: 40, y: 120 },
-    { name: "J", x: 100, y: 120 }
+    { name: "A", x: 50, y: 150 },
+    { name: "B", x: 130, y: 150 },
+    { name: "C", x: 60, y: 130 },
+    { name: "D", x: 110, y: 130 },
+    { name: "E", x: 20, y: 110 },
+    { name: "F", x: 80, y: 110 },
+    { name: "G", x: 140, y: 110 },
+    { name: "H", x: 110, y: 90 },
+    { name: "I", x: 30, y: 70 },
+    { name: "J", x: 80, y: 70 }
 ];
 
 function sleep(ms) {
@@ -149,8 +149,8 @@ async function startSolving() {
 
 function randomizeCities() {
     cities.forEach(city => {
-        city.x = Math.floor(Math.random() * 380) + 10; // Ensure the city stays within the canvas
-        city.y = Math.floor(Math.random() * 380) + 10; // Ensure the city stays within the canvas
+        city.x = Math.floor(Math.random() * 480) + 10; // Ensure the city stays within the canvas
+        city.y = Math.floor(Math.random() * 180) + 10; // Ensure the city stays within the canvas
     });
     drawPath([]); // Draw the randomized cities
 }
