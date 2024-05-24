@@ -8,17 +8,62 @@
 <body>
     <div class="container">
         <h1>Problema da Soma dos Subconjuntos</h1>
-        <div class="controls">
-            <label for="numbers">Números (separados por vírgula):</label>
-            <input type="text" id="numbers" placeholder="-7, -3, -2, 5, 8">
-            <label for="delay">Atraso (ms):</label>
-            <input type="number" id="delay" value="500" min="100" step="100">
-            <div>
-                <button onclick="startSolving()">Resolver</button>
-                <button onclick="window.location.href='../index.html'">Voltar</button>
+        <div class="flex-container">
+            <div class="controls">
+                <label for="numbers">Números (separados por vírgula):</label>
+                <input type="text" id="numbers" placeholder="-7, -3, -2, 5, 8">
+                <label for="delay">Atraso (ms):</label>
+                <input type="number" id="delay" value="500" min="100" step="100">
+                <div>
+                    <button onclick="startSolving()">Resolver</button>
+                    <button onclick="window.location.href='../index.html'">Voltar</button>
+                </div>
+                <div class="explanation">
+                    <h2>Passo a Passo: Construindo o Algoritmo de Backtracking para o Problema da Soma dos Subconjuntos</h2>
+                    <p>Entendendo o Problema da Soma dos Subconjuntos</p>
+                    <p><strong>Objetivo:</strong></p>
+                    <p>Encontrar um subconjunto de um conjunto de números que some zero.</p>
+                    <h3>Algoritmo de Tentativa-e-Erro (Backtracking)</h3>
+                    <p>O backtracking é uma técnica de resolução de problemas que envolve a construção de soluções incrementais e a remoção das soluções que não satisfazem as restrições do problema. Para o Problema da Soma dos Subconjuntos, a abordagem de backtracking funciona da seguinte maneira:</p>
+                    <ul>
+                        <li><strong>Definir o problema e inicializar parâmetros:</strong>
+                            <ul>
+                                <li>Dado um conjunto de números, queremos encontrar um subconjunto que some zero.</li>
+                                <li>Inicializar uma lista para armazenar o subconjunto atual e um índice para controlar a posição atual no conjunto original.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Iniciar a busca de subconjuntos:</strong>
+                            <ul>
+                                <li>Começar da primeira posição do conjunto original e verificar todos os subconjuntos possíveis.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Incluir e excluir cada número:</strong>
+                            <ul>
+                                <li>Para cada número na posição atual, temos duas opções:</li>
+                                <li>Incluir o número no subconjunto atual.</li>
+                                <li>Excluir o número do subconjunto atual.</li>
+                                <li>Repetir o processo recursivamente para a próxima posição no conjunto original.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Verificar a soma do subconjunto:</strong>
+                            <ul>
+                                <li>Se a soma do subconjunto atual for zero, retornar verdadeiro.</li>
+                                <li>Se todos os números tiverem sido considerados e nenhum subconjunto válido for encontrado, retornar falso.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Backtracking:</strong>
+                            <ul>
+                                <li>Se a inclusão ou exclusão de um número não levar a uma solução, remover o número do subconjunto (retroceder) e tentar uma nova combinação.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="steps-container">
+                <h2>Passo a Passo:</h2>
+                <div id="steps"></div>
             </div>
         </div>
-        <div id="steps"></div>
     </div>
     <script src="/js/subconjuntos/subconjuntos.js"></script>
 </body>
