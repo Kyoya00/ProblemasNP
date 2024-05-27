@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Seis Graus de Bacon</title>
+    <link rel="stylesheet" href="/styles/bacon/bacon.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Seis Graus de Bacon</h1>
+        <div class="flex-container">
+            <div class="controls">
+                <label for="actor1">Ator/Atriz 1:</label>
+                <input type="text" id="actor1" placeholder="Digite o nome do ator/atriz">
+                <label for="actor2">Ator/Atriz 2:</label>
+                <input type="text" id="actor2" placeholder="Digite o nome do ator/atriz">
+                <input type="file" id="csvFileInput" accept=".csv">
+                <div class="button-container">
+                    <button onclick="loadCSV()">Carregar CSV</button>
+                    <button onclick="calculateBaconNumber()">Calcular Número de Bacon</button>
+                    <button onclick="window.location.href='../index.html'">Voltar</button>
+                </div>
+                <div class="result">
+                    <h2>Resultado:</h2>
+                    <div id="steps"></div>
+                </div>
+            </div>
+            <div class="explanation">
+                <h2>Passo a Passo: Algoritmo para o Problema dos Seis Graus de Bacon</h2>
+                <p>O problema dos seis graus de Bacon consiste em encontrar o caminho mais curto entre dois atores em uma rede de filmes, onde os nós são os nomes dos atores e as arestas representam filmes em que os atores apareceram juntos.</p>
+                <h3>Algoritmo de Busca em Largura (BFS)</h3>
+                <p><strong>Inicialização:</strong></p>
+                <ul>
+                    <li>Comece com uma fila vazia (aqui chamada de queue).</li>
+                    <li>Adicione o nó inicial (ator inicial) à fila.</li>
+                </ul>
+                <p><strong>Exploração:</strong></p>
+                <ul>
+                    <li>Enquanto a fila não estiver vazia:</li>
+                        <ul>
+                            <li>Remova o primeiro nó da fila.</li>
+                            <li>Se este nó for o nó de destino (ator de destino), retorne o caminho até ele.</li>
+                            <li>Caso contrário, marque o nó como visitado.</li>
+                            <li>Para cada vizinho não visitado do nó atual:</li>
+                                <ul>
+                                    <li>Crie um novo caminho que inclua este vizinho.</li>
+                                    <li>Adicione este novo caminho à fila.</li>
+                                </ul>
+                        </ul>
+                </ul>
+                <p><strong>Condição de Parada:</strong></p>
+                <ul>
+                    <li>Se a fila estiver vazia e o nó de destino não for encontrado, retorne que não há caminho.</li>
+                </ul>
+                <p><strong>Resultado:</strong></p>
+                <ul>
+                    <li>Quando encontrar o nó de destino, retorne o caminho até ele e o comprimento do caminho.</li>
+                </ul>
+                <p>Este algoritmo é aplicado para encontrar o caminho mais curto entre dois atores no grafo de atores (actorsGraph), onde os nós são os nomes dos atores e as arestas representam filmes em que os atores apareceram juntos. O BFS é eficaz para encontrar o caminho mais curto em grafos não ponderados, como é o caso aqui.</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/bacon/bacon.js"></script>
+</body>
+</html>

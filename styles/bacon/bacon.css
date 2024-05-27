@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 45%;
+}
+
+.controls label {
+    margin-right: 10px;
+}
+
+.controls input {
+    padding: 5px;
+    border: 1px solid #2c3e50;
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 5px 0;
+    border: none;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #34495e;
+}
+
+.controls button:nth-child(4) {
+    background-color: #dc3545;
+}
+
+.controls button:nth-child(4):hover {
+    background-color: #c82333;
+}
+
+#steps-container {
+    flex: 1 1 100%;
+    margin-top: 20px;
+}
+
+#steps-container h2 {
+    color: #2c3e50;
+}
+
+#steps {
+    text-align: center;
+    margin-top: 10px;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#steps p {
+    margin: 0 10px 10px auto;
+    font-size: 16px; 
+    line-height: 1.6;
+    color: #7f8c8d;
+    max-width: 200px; 
+    padding: 5px; 
+    border: 1px solid #2c3e50; 
+    border-radius: 4px; 
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.explanation {
+    text-align: left;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-left: 20px;
+    width: calc(55% - 40px);
+    box-sizing: border-box;
+}
+
+.explanation h2, .explanation h3 {
+    color: #2c3e50;
+}
+
+.explanation p, .explanation ul, .explanation ol {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #7f8c8d;
+}
+
+.explanation ul, .explanation ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.explanation li {
+    margin-bottom: 5px;
+}
